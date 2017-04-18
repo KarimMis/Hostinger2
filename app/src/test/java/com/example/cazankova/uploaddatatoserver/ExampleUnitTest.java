@@ -1,4 +1,4 @@
-package com.example.cazankova.uploadimagetoserver;
+package com.example.cazankova.uploaddatatoserver;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.example.cazankova.uploadimagetoserver;
+package com.example.cazankova.uploaddatatoserver;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.cazankova.uploadimagetoserver", appContext.getPackageName());
+        assertEquals("com.example.cazankova.uploaddatatoserver", appContext.getPackageName());
     }
 }

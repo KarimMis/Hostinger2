@@ -1,4 +1,4 @@
-package com.example.cazankova.uploadimagetoserver;
+package com.example.cazankova.uploaddatatoserver;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -8,8 +8,6 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,16 +34,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private ImageView imageView;
 
-    private EditText editTextName;
+    private EditText name;
+    private EditText age;
 
     private Bitmap bitmap;
 
     private int PICK_IMAGE_REQUEST = 1;
 
-    private String UPLOAD_URL ="http://192.168.1.2/VolleyUploadImage/uploadImage.php";
+    private String UPLOAD_URL ="http://192.168.1.4/VolleyUploadImagAndMultiText/uploadImageAndText.php";
 
     private String KEY_IMAGE = "photo";
     private String KEY_NAME = "photoName";
+    private String KEY_AGE = "photoAge";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +55,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonChoose = (Button) findViewById(R.id.buttonChoose);
         buttonUpload = (Button) findViewById(R.id.buttonUpload);
 
-        editTextName = (EditText) findViewById(R.id.editText);
+        name = (EditText) findViewById(R.id.editText);
+        age = (EditText) findViewById(R.id.editText2);
 
         imageView  = (ImageView) findViewById(R.id.imageView);
 
@@ -82,6 +83,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void uploadImage(){
         //Showing the progress dialog
         final ProgressDialog loading = ProgressDialog.show(this,"Uploading...","Please wait...",false,false);
+
         StringRequest stringRequest = new StringRequest(Request.Method.POST, UPLOAD_URL,
                 new Response.Listener<String>() {
                     @Override
@@ -108,7 +110,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String photo = getStringImage(bitmap);
 
                 //Getting Image Name
-                String photoName = editTextName.getText().toString().trim();
+                String photoName = name.getText().toString().trim();
+                String personAge = age.getText().toString().trim();
 
                 //Creating parameters
                 Map<String,String> params = new Hashtable<String, String>();
@@ -116,6 +119,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //Adding parameters
                 params.put(KEY_IMAGE, photo);
                 params.put(KEY_NAME, photoName);
+                params.put(KEY_AGE, personAge);
 
                 //returning parameters
                 return params;

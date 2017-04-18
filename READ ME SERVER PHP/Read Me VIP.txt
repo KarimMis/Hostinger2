@@ -1,0 +1,7 @@
+1 - it's important to change the IP in Java Folder to ur current network IP .
+2- it's Important to check the server work in 127.0.0.1 IP because it's name of ur localhost. 
+3 - it's Important to check if ur IP of network is working right ( TEST IT in Browser and see if it open as localhost ).
+4- if u upload Image u need make ( "upload" folder in "WWW" folder of WAMP ) and for best practise make new folder in "WWW" for ur project ( WWW - "PROJECT" folder - (php files+"upload"folder)).
+5  you must write the directory right including the IP EXAMPLE (http://192.168.1.4/VolleyUploadImagAndMultiText) (http://192.168.1.4/VolleyUploadImagAndMultiText/uploadImageAndText.php).
+5 - make sure ur WAMP is online by ( WAMP setting - menu item Online/Offline).
+6 - make sure when u make DB in PhpMyadmin put the Photo URL filed Big Length.
